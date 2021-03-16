@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>creditcard</title>
+</head>
+
+<body>
+    <div id="pxhv-instrument"></div>
+</body>
+
+<script id="source" type="text/javascript" src=""></script>
+<script id="scriptcontent" language="javascript">
+	"use strict";
+
+	// https://stackoverflow.com/questions/29531097/how-to-dynamically-change-the-script-src
+	function populateSource(value)
+	{
+		var source = document.createElement("script");
+		source.type = "text/javascript";
+		source.src = value;
+		source.innerHTML = null;
+		source.id = "source";
+		document.getElementById("pxhv-instrument").innerHTML = "";
+		document.getElementById("pxhv-instrument").appendChild(source);
+	}
+
+	let config = {
+		container: "pxhv-instrument",
+		OnPaymentCompleted: function(OnPaymentCompletedEvent) {
+			alert("purchase completed");
+			console.log(OnPaymentCompletedEvent);
+		}
+	};
+</script>
+</html>
